@@ -1,0 +1,52 @@
+aside {
+  width: 220px;
+  height: 100vh;
+  background-color: #ffff; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid #e5e7eb; 
+}
+
+aside h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+aside nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+aside nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #111827;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+aside nav a:hover {
+  color: #8693AB; /* blue on hover */
+}
+
+aside button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #EC221F; /* red */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+aside button:hover {
+  color: #b91c1c; /* darker red */
+}
