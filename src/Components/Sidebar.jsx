@@ -1,7 +1,7 @@
 import { House, SquarePlus, CircleUserRound, LogOut } from "lucide-react";
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
-import Homepage from "../Pages/Homepage";
+
 import "../css/Sidebar.css"
 
 function Sidebar(){
@@ -10,7 +10,7 @@ function Sidebar(){
             <div>
                 <h1> Mubadalah </h1>
                 <nav>
-                    <Link to="/"><Homepage /> Home </Link> 
+                    <Link to="/"><House /> Home </Link> 
                     <Link to="/create"><SquarePlus /> Create </Link>
                     <Link to="/profile/Asem"><CircleUserRound /> Profile </Link>
                 </nav>

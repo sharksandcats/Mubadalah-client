@@ -1,18 +1,19 @@
 aside {
   width: 220px;
-  height: 100vh;
+  height: 95vh;
   background-color: #ffff; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  border-right: 1px solid #e5e7eb; 
+  border-right: 1px solid #e5e7eb;
+  position: fixed; 
 }
 
 aside h1 {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 aside nav {
@@ -45,8 +46,18 @@ aside button {
   color: #EC221F; /* red */
   cursor: pointer;
   transition: color 0.2s ease;
+  margin-bottom: 30px;
 }
 
 aside button:hover {
   color: #b91c1c; /* darker red */
+  border: none;
+}
+
+aside button:active{
+  border: none;
+}
+
+aside button:focus{
+  border: red;
 }

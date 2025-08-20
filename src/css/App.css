@@ -1,0 +1,11 @@
+.app-container{
+    display: flex;
+    min-height: 100vh;
+}
+
+main{
+    margin-left: 500px;
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+}
