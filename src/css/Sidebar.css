@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+
 aside {
   width: 220px;
   height: 95vh;
@@ -11,9 +13,11 @@ aside {
 }
 
 aside h1 {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
+  font-family: 'Martian Mono', monospace;
   margin-bottom: 60px;
+  margin-left: 15px;
 }
 
 aside nav {
@@ -25,15 +29,24 @@ aside nav {
 aside nav a {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   font-size: 16px;
-  color: #111827;
+  color: #565757;
   text-decoration: none;
   transition: color 0.2s ease;
+  padding: 10px 15px;
+  border-left: 4px solid transparent;
 }
 
 aside nav a:hover {
-  color: #8693AB; /* blue on hover */
+  color: #1c1c1c; 
+}
+
+aside nav a.active{
+  background-color: #8693AB;
+  color: #ffff;
+  border-radius: 10px;
+  border-left: 10px solid #8cb4f1;
 }
 
 aside button {
