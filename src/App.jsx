@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
 import Sidebar from './Components/sidebar'
 import Homepage from './Pages/Homepage'
+import './css/App.css'
 
 function App() {
 
@@ -34,30 +35,34 @@ function App() {
   ]
 
   return (
-    <div>
-      <Router>
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Homepage ></Homepage>} />
-        </Routes>
-      </Router>
-
+  <Router>
+    <div className="app-container">
+      <Sidebar />
       <main>
-        {posts.map((post, index) => {
-          <Homepage
-            key = {index}
-            user = {post.user}
-            time = {post.time}
-            phone = {post.phone}
-            image = {post.image}
-            likes = {post.likes}
-            caption = {post.caption}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                {posts.map((post, index) => (
+                  <Homepage
+                    key={index}
+                    user={post.user}
+                    time={post.time}
+                    phone={post.phone}
+                    image={post.image}
+                    likes={post.likes}
+                    caption={post.caption}
+                  />
+                ))}
+              </div>
+            }
           />
-        })}
-    
-      </main> 
+        </Routes>
+      </main>
     </div>
-  )
+  </Router>
+);
 }
 
 export default App
