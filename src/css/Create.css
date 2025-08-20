@@ -1,0 +1,52 @@
+.create-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: monospace;
+}
+
+.create-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.create-header h2 {
+  font-weight: bold;
+}
+
+.nav-icon {
+  cursor: pointer;
+}
+
+.upload-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.caption-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #444;
+  resize: none;
+  padding: 8px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #888;
+  padding: 10px 0;
+  cursor: pointer;
+}
