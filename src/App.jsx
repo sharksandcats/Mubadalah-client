@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
 import Sidebar from './Components/sidebar'
 import Homepage from './Pages/Homepage'
+import Create from './Pages/Create';
+
 import './css/App.css'
 
 function App() {
@@ -62,6 +64,7 @@ function App() {
               </div>
             }
           />
+          <Route path="/create" element={<Create/>}/>
         </Routes>
       </main>
     </div>
