@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
-import Sidebar from './Components/sidebar'
+import Sidebar from './Components/Sidebar'
 import Homepage from './Pages/Homepage'
 import './css/App.css'
 
