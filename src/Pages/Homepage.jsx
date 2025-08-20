@@ -1,22 +1,28 @@
 import { HeartHandshake, Bookmark } from 'lucide-react'
+import { useState } from 'react'
 
 import '../css/Homepage.css'
 
 
 const Homepage = (props) =>{
+
+    const [liked, setLiked] = useState(false)
+    const [saved, setSaved] = useState(false)
+
     return(
         <div className='post'>
 
             <div className='post-header'>
                 <div className='post-user'>
-                    <img src="https://www.pngkey.com/png/detail/16-169970_thinking-guy-png-image-stock-deal-with-your.png"
-                         alt = "Profile"/>
+                    <img src={props.img} alt = "Profile"/>
                     <div className='post-user-info'>
                         <p>{props.user}</p>
                         <p>{props.phone} • {props.time}</p>
                     </div>     
                 </div>
-                <Bookmark />
+                <Bookmark 
+                    className={`icon ${saved ? 'active': ''}`}
+                    onClick={() => setSaved(!saved)}/>
             </div>
 
             <div className='post-image'>
@@ -24,8 +30,11 @@ const Homepage = (props) =>{
             </div>
 
             <div className='post-actions'>
-                <HeartHandshake />
-                <p>{props.likes} likes</p>
+                <HeartHandshake 
+                className={`icon ${liked ? 'active': ''}`}
+                    onClick={() => setLiked(!liked)}/>
+
+                <p>{liked ? props.likes + 1: props.likes} likes</p>
             </div>
 
             <p className='post-caption'>

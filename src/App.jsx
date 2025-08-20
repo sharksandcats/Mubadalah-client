@@ -10,6 +10,7 @@ function App() {
   const posts = [
     {
       user:"Asem",
+      img: "https://gratisography.com/wp-content/uploads/2022/02/gratisography-nerdy-guy-free-stock-photo-1170x780.jpg",
       time: "26m",
       phone: "0793332891",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROWff7eMHG8ttQOGyMKuU-S4HFMZKxJrZ7Nw&s",
@@ -18,6 +19,7 @@ function App() {
     },
     {
       user: "Maya",
+      img: "https://rlv.zcache.ca/peanuts_a_snoopy_happy_dance_door_sign-rb626efb74bcd429593301dbcdcd2ad08_6vj7r_644.webp?rlvnet=1",
       time: "20m",
       phone: "07911113354",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpevyOaipSZgXWCf90sAe8yESWHQvaKtTsQ&s",
@@ -26,6 +28,7 @@ function App() {
     },
     {
       user: "Sasha",
+      img: "https://static.scientificamerican.com/sciam/cache/file/9CAE9C60-8BC5-4CA3-95C180EFACDD99FD_source.jpg?w=1200",
       time: "6m",
       phone: "078888888888",
       image: "https://i.chzbgr.com/full/9836262400/h06DD08DE",
@@ -48,6 +51,7 @@ function App() {
                   <Homepage
                     key={index}
                     user={post.user}
+                    img={post.img}
                     time={post.time}
                     phone={post.phone}
                     image={post.image}

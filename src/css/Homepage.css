@@ -70,3 +70,16 @@
 .post-caption span {
   font-weight: bold;
 }
+
+.icon{
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.icon.active{
+  color: #e0245e;
+}
+
+.post-header .icon.active{
+  color: #619BF1;
+}
