@@ -20,7 +20,10 @@ const Create = () =>{
             <hr/>
 
             <div className="upload-box">
+
+                <ImageUp size={48} />
                 <ImageUp className='icon' size={100}/>
+
             </div>
 
             <textarea
@@ -32,9 +35,20 @@ const Create = () =>{
             <hr/>
 
             <div className='options'>
+<<<<<<< HEAD
                 <p> {location} </p>
                 <MapPinPlus className='map' size={20}
                 onClick={() => setShowDropdown(!showDropdown)}/>
+=======
+                <p> Add Location </p>
+                <MapPinPlus size={18}/>
+            </div>
+
+            <div className='options'>
+                <p>Contact Info</p>
+                <Phone size={18}/>
+                <MapPinPlus className='map' size={20}/>
+>>>>>>> 84143e50aa2459fb0dcb019cc51a288d6ea19814
             </div>
 
             {showDropdown && (
@@ -52,12 +66,17 @@ const Create = () =>{
             placeholder="Contact Info"
             rows="1"
             />
+<<<<<<< HEAD
                 <Phone className='phone-icon' size={20}/>
             
+=======
+                <Phone size={20}/>
+>>>>>>> 84143e50aa2459fb0dcb019cc51a288d6ea19814
             </div>
         </div>
     )
 }
+
 
 export default Create;
 

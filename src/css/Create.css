@@ -17,9 +17,11 @@
 
 .create-header h2 {
   font-weight: bold;
+
   font-family: 'Martian Mono', monospace;
   font-size: 20px;
   justify-content: center;
+>>>>>>> 6236cc203225a04e58cb5ebddd6553b65f140b39
 }
 
 .nav-icon {
@@ -31,10 +33,17 @@
 }
 
 .upload-box {
+<<<<<<< HEAD
   border: 1px solid #ddd;
   border-radius: 8px;
   height: 300px;
   width: 700px;
+=======
+<<<<<<< HEAD
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: 300px;
+>>>>>>> 84143e50aa2459fb0dcb019cc51a288d6ea19814
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,6 +60,10 @@
   color: #444;
   resize: none;
   padding: 8px;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 84143e50aa2459fb0dcb019cc51a288d6ea19814
   border: 1px solid #181818;
   border-radius: 8px;
   width: 700px;
@@ -78,6 +91,7 @@
   resize: none;
   padding: 8px;
   margin-top: 10px;
+>>>>>>> 6236cc203225a04e58cb5ebddd6553b65f140b39
 }
 
 .options {
@@ -85,8 +99,15 @@
   justify-content: space-between;
   align-items: center;
   color: #888;
+<<<<<<< HEAD
   padding: 10px 0;
   cursor: pointer;
+=======
+  padding: 10px 0
+  cursor: pointer;
+}
+=======
+>>>>>>> 84143e50aa2459fb0dcb019cc51a288d6ea19814
   width: 700px;
   font-size: 14px;
 }
@@ -123,6 +144,7 @@ hr{
   width: 700px;
 }
 
+<<<<<<< HEAD
 .dropdown-container {
   position: absolute; /* so it floats above content */
   background: white;
@@ -136,3 +158,5 @@ hr{
   margin-top: 5px;
 }
 
+=======
+>>>>>>> 84143e50aa2459fb0dcb019cc51a288d6ea19814
