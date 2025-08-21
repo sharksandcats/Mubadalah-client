@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+
 .create-container {
   max-width: 600px;
   margin: 0 auto;
@@ -10,10 +12,14 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  justify-content: center;
 }
 
 .create-header h2 {
   font-weight: bold;
+  font-family: 'Martian Mono', monospace;
+  font-size: 20px;
+  justify-content: center;
 }
 
 .nav-icon {
@@ -21,25 +27,33 @@
 }
 
 .upload-box {
-  border: 1px solid #ddd;
+  border: 1px solid #181818;
   border-radius: 8px;
-  height: 300px;
+  height: 436px;
+  width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px auto;
   background: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.icon{
+  color: #AFB0B1;
+  justify-content: center;
 }
 
 .caption-input {
-  width: 100%;
+  width: 700px;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   color: #444;
   resize: none;
   padding: 8px;
+  margin-top: 10px;
 }
 
 .options {
@@ -48,5 +62,31 @@
   align-items: center;
   color: #888;
   padding: 10px 0;
+  width: 700px;
+  font-size: 14px;
+}
+
+.map{
   cursor: pointer;
+}
+
+.phone-caption-input{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #888;
+  padding: 10px 0;
+  cursor: pointer;
+  width: 700px;
+  font-size: 14px;
+}
+
+.phone-caption-input textarea{
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+hr{
+  width: 700px;
 }
