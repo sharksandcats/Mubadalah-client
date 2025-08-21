@@ -1,5 +1,7 @@
 import {ArrowLeft, SendHorizontal, MapPinPlus, Phone, ImageUp } from 'lucide-react';
 
+import '../css/Create.css'
+
 const Create = () =>{
     return(
         <div className='create-container'>
@@ -12,7 +14,7 @@ const Create = () =>{
             <hr/>
 
             <div className="upload-box">
-                <ImageUp size={48} />
+                <ImageUp className='icon' size={100}/>
             </div>
 
             <textarea
@@ -25,12 +27,16 @@ const Create = () =>{
 
             <div className='options'>
                 <p> Add Location </p>
-                <MapPinPlus size={18}/>
+                <MapPinPlus className='map' size={20}/>
             </div>
 
-            <div className='options'>
-                <p>Contact Info</p>
-                <Phone size={18}/>
+            <div className='phone-caption-input'>
+            <textarea 
+            placeholder="Contact Info"
+            rows="1"
+            />
+                <Phone size={20}/>
+            
             </div>
         </div>
     )
