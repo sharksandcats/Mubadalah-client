@@ -1,5 +1,8 @@
+<<<<<<< HEAD
+=======
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
 
+>>>>>>> 6236cc203225a04e58cb5ebddd6553b65f140b39
 .create-container {
   max-width: 600px;
   margin: 0 auto;
@@ -12,14 +15,20 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+<<<<<<< HEAD
+=======
   justify-content: center;
+>>>>>>> 6236cc203225a04e58cb5ebddd6553b65f140b39
 }
 
 .create-header h2 {
   font-weight: bold;
+<<<<<<< HEAD
+=======
   font-family: 'Martian Mono', monospace;
   font-size: 20px;
   justify-content: center;
+>>>>>>> 6236cc203225a04e58cb5ebddd6553b65f140b39
 }
 
 .nav-icon {
@@ -27,6 +36,27 @@
 }
 
 .upload-box {
+<<<<<<< HEAD
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.caption-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #444;
+  resize: none;
+  padding: 8px;
+=======
   border: 1px solid #181818;
   border-radius: 8px;
   height: 436px;
@@ -54,6 +84,7 @@
   resize: none;
   padding: 8px;
   margin-top: 10px;
+>>>>>>> 6236cc203225a04e58cb5ebddd6553b65f140b39
 }
 
 .options {
@@ -62,6 +93,10 @@
   align-items: center;
   color: #888;
   padding: 10px 0;
+<<<<<<< HEAD
+  cursor: pointer;
+}
+=======
   width: 700px;
   font-size: 14px;
 }
@@ -90,3 +125,4 @@
 hr{
   width: 700px;
 }
+>>>>>>> 6236cc203225a04e58cb5ebddd6553b65f140b39
