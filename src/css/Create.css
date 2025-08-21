@@ -23,13 +23,18 @@
 }
 
 .nav-icon {
-  cursor: pointer;
+  cursor: pointer
+}
+
+.nav-icon:hover{
+  color: #619BF1;
 }
 
 .upload-box {
   border: 1px solid #ddd;
   border-radius: 8px;
   height: 300px;
+  width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,20 +53,20 @@
   padding: 8px;
   border: 1px solid #181818;
   border-radius: 8px;
-  height: 436px;
   width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  background: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  cursor: pointer;
 }
 
 .icon{
   color: #AFB0B1;
   justify-content: center;
+}
+
+.icon:hover{
+  color:#1c1c1c;
 }
 
 .caption-input {
@@ -90,13 +95,16 @@
   cursor: pointer;
 }
 
+.map:hover{
+  color: #1c1c1c;
+}
+
 .phone-caption-input{
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #888;
   padding: 10px 0;
-  cursor: pointer;
   width: 700px;
   font-size: 14px;
 }
@@ -107,7 +115,24 @@
   resize: none;
 }
 
+.phone-caption-input:hover{
+  color: #1c1c1c;
+}
+
 hr{
   width: 700px;
+}
+
+.dropdown-container {
+  position: absolute; /* so it floats above content */
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+  margin-top: 5px;
 }
 
