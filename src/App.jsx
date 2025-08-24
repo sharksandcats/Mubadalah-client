@@ -6,6 +6,7 @@ import Homepage from './Pages/Homepage'
 import Create from './Pages/Create';
 
 import './css/App.css'
+import Profile from './Pages/Profile';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
             }
           />
           <Route path="/create" element={<Create/>}/>
+          <Route path="/profile/:user" element={<Profile/>}/>
         </Routes>
       </main>
     </div>
