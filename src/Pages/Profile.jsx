@@ -3,8 +3,9 @@ import { Grid3x3, Bookmark, HeartHandshake} from 'lucide-react';
 import { useNavigate } from 'react-router';
 
 import '../css/Profile.css'
+import './Homepage.jsx'
 
-const Profile = () =>{
+const Profile = ({ activeTab, onTabChange }) =>{
     
     const navigate = useNavigate();
 
@@ -24,14 +25,17 @@ const Profile = () =>{
             <div className='tabs-wrapper'>
                 <hr className='divider'/>
                 <div className='post-tabs'>
-                    <Grid3x3 size={35} className='tab-icon'/>
-                    <Bookmark size={35} className='tab-icon'/>
+                    <Grid3x3 
+                    size={35} 
+                    className={`tab-icon ${activeTab === "posts" ? "active" : ""}`}
+                    onClick={() => onTabChange("posts")}
+                    />
+                    <Bookmark 
+                    size={35} 
+                    className={`tab-icon ${activeTab === "saved" ? "active" : ""}`}
+                    />
                 </div>
             </div>
-
-                <div className='profile-posts'>
-                    <p> Posts will go here...</p>
-                 </div>
         </div>
     )
 }
