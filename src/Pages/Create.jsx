@@ -1,18 +1,23 @@
 import {ArrowLeft, SendHorizontal, MapPinPlus, Phone, ImageUp } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import '../css/Create.css'
 import CitySelector from '../Components/CitySelector';
 
 const Create = () =>{
 
+    const navigate = useNavigate();
     const [showDropdown, setShowDropdown] = useState(false)
     const [location, setLocation] = useState("Add Location")
 
     return(
         <div className='create-container'>
             <div className='create-header'>
-                <ArrowLeft className='nav-icon'/>
+                <ArrowLeft 
+                className='nav-icon'
+                onClick={() => navigate(-1)}
+                />
                 <h2> New Post </h2>
                 <SendHorizontal className='nav-icon'/>
             </div>
