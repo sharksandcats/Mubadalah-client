@@ -18,7 +18,7 @@ const Homepage = (props) =>{
                     <img src={props.img} alt = "Profile"/>
                     <div className='post-user-info'>
                         <p>{props.user}</p>
-                        <p>{props.phone} • {props.time}</p>
+                        <p>{props.phone} • {props.location}</p>
                     </div>     
                 </div>
                 <Bookmark 
