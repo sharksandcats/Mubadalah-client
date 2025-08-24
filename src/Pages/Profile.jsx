@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Grid3x3, Bookmark, HeartHandshake} from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import '../css/Profile.css'
 import './Homepage.jsx'
