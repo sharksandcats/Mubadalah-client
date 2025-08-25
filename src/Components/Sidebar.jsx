@@ -14,9 +14,10 @@ function Sidebar(){
                     <NavLink to="/"><House /> Home </NavLink> 
                     <NavLink to="/create"><SquarePlus /> Create </NavLink>
                     <NavLink to="/profile/Asem"><CircleUserRound /> Profile </NavLink> 
+                    <NavLink to="/login" className="login"> Login </NavLink>
                 </nav>
             </div>
-            <button><LogOut /> Logout </button>
+            <button className="logout"><LogOut /> Logout </button>
         </aside>
     )
 }

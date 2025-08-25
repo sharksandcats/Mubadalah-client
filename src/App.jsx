@@ -7,6 +7,7 @@ import Create from './Pages/Create';
 import './css/App.css'
 import Profile from './Pages/Profile';
 import EditProfile from './Pages/EditProfile';
+import Login from './Pages/Login';
 
 function App() {
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="/create" element={<Create/>}/>
           <Route path="/profile/:user" element={<Profile/>}/>
           <Route path="/edit-profile" element={<EditProfile/>}/>
+          <Route path='/login' element={<Login />}/>
         </Routes>
       </main>
     </div>
