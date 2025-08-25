@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
 
 aside {
-  width: 220px;
-  height: 95vh;
+  width: 230px;
+  height: 100%;
   background-color: #ffff; 
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ aside h1 {
   font-weight: bold;
   font-family: 'Martian Mono', monospace;
   margin-bottom: 60px;
-  margin-left: 15px;
+  margin-top: 30px;
 }
 
 aside nav {
@@ -56,13 +56,16 @@ aside button {
   background: none;
   border: none;
   font-size: 16px;
-  color: #EC221F; /* red */
   cursor: pointer;
   transition: color 0.2s ease;
   margin-bottom: 30px;
 }
 
-aside button:hover {
+.logout{
+  color: #EC221F; /* red */
+}
+
+.logout:hover {
   color: #b91c1c; /* darker red */
   border: none;
 }
@@ -71,6 +74,19 @@ aside button:active{
   border: none;
 }
 
-aside button:focus{
+.logout:focus{
   border: red;
+}
+
+.login{
+  color: #619BF1;
+}
+
+.login:hover{
+  color: #2a78ed;
+  border: none;
+}
+
+.login:focus{
+  border: #619BF1;
 }
