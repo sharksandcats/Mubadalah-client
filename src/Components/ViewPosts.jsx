@@ -1,24 +1,22 @@
-import { useState } from 'react'
-
-import Profile from '../Pages/Profile'
 import Homepage from '../Pages/Homepage'
 
-const ViewPosts = () =>{
-
-    const [activeTab, setActiveTab] = useState("posts")
+const ViewPosts = ({posts}) =>{
 
     return(
-        <div>
-            <Profile 
-            activeTab={activeTab} 
-            onTabChange={setActiveTab}
-            />
+        <div className='View-Posts'>
+            {posts.map((post, index) =>(
 
-            <div className='profile-content'>
-                {activeTab === "posts" && <Homepage/>}
-                {activeTab === "saved" && <p>meow</p>}
-            </div>
-
+                <Homepage
+                    key={index}
+                    img={post.img}
+                    user={post.user}
+                    phone={post.phone}
+                    location={post.location}
+                    image={post.image}
+                    like={post.likes}
+                    caption={post.caption}
+                />
+            ))}
         </div>
     )
 }
