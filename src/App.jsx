@@ -8,6 +8,7 @@ import './css/App.css'
 import Profile from './Pages/Profile';
 import EditProfile from './Pages/EditProfile';
 import Login from './Pages/Login';
+import Signup from './Pages/Signup';
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
           <Route path="/profile/:user" element={<Profile/>}/>
           <Route path="/edit-profile" element={<EditProfile/>}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/signup' element={<Signup />}/>
         </Routes>
       </main>
     </div>
