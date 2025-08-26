@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import '../css/Profile.css'
 import './Homepage.jsx'
+import Sidebar from '../Components/Sidebar.jsx';
 
 const Profile = ({ activeTab, onTabChange }) =>{
     
@@ -11,6 +12,7 @@ const Profile = ({ activeTab, onTabChange }) =>{
 
     return(
         <div className='profile-container'>
+            <Sidebar />
             <div className='profile-header'>
                 <img src='https://gratisography.com/wp-content/uploads/2022/02/gratisography-nerdy-guy-free-stock-photo-1170x780.jpg'
                      alt='profile-picture'

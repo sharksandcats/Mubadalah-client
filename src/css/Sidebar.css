@@ -10,6 +10,8 @@ aside {
   padding: 20px;
   border-right: 1px solid #e5e7eb;
   position: fixed; 
+  left: 0;
+  top: 0;
 }
 
 aside h1 {
@@ -80,6 +82,8 @@ aside button:active{
 
 .login{
   color: #619BF1;
+  margin-left: 5px;
+  font-weight: bold;
 }
 
 .login:hover{

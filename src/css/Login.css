@@ -1,25 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
 
+/* --- IMPORTANT: reset so the right panel can touch the edge --- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; }
+
+/* Layout */
 .login-container {
   display: flex;
+  align-items: stretch;
   height: 100vh;
   width: 100%;
+  gap: 40px;                 /* space between form and blue panel */
   font-family: sans-serif;
 }
 
-/* Left Side */
+/* Left Side (form) */
 .login-left {
-  flex: 1;
+  flex: 1;                   /* takes remaining width */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px;
+  padding: 64px 32px 64px 48px;  /* smaller left padding => shifts content left */
 }
 
 .welcome-text {
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bold;
-  color: #1a1a4b;
   font-family: "Martian Mono", monospace;
   color: #2B3674;
 }
@@ -27,15 +34,15 @@
 .subtitle {
   margin-top: 5px;
   color: #888;
-  font-size: 1rem;
-  margin-bottom: 40px;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  max-width: 400px;
+  max-width: 560px;          /* bigger, desktop-appropriate form width */
 }
 
 .form-group {
@@ -46,24 +53,19 @@
 
 .form-group label {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #333;
 }
 
 .form-group input {
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
 }
 
-.password-wrapper {
-  position: relative;
-}
-
-.password-wrapper input {
-  width: 100%;
-}
+.password-wrapper { position: relative; }
+.password-wrapper input { width: 100%; }
 
 .toggle-password {
   position: absolute;
@@ -78,29 +80,39 @@
   background: #4da6ff;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 14px;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.2s;
 }
+.login-btn:hover { background: #1b87f4; }
 
-.login-btn:hover {
-  background: #1b87f4;
-}
-
-/* Right Side */
+/* Right Side (blue panel) */
 .login-right {
-  font-family: "Martian Mono", monospace;
-  font-size: 10px;
-  font-weight: bold;
-  flex: 1;
+  flex: 0 0 420px;           /* fixed width => always on the far right */
+  height: 100vh;             /* full height so it fills the side */
   background: #4da6ff;
   color: white;
   display: flex;
-  justify-content: right;
-  align-items: center;
-  font-weight: bold;
-  border-top-left-radius: 100px;
+  justify-content: center;   /* center text horizontally */
+  align-items: center;       /* center text vertically */
   border-bottom-left-radius: 100px;
+  font-family: "Martian Mono", monospace;
+  font-size: 18px;
+  font-weight: bold;
 }
+
+/* Sign up link */
+.signup-link {
+  margin-top: 15px;
+  font-size: 15px;
+  text-align: center;
+  color: #555;
+}
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.signup-link a:hover { text-decoration: underline; }

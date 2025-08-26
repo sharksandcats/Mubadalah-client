@@ -4,7 +4,6 @@
   padding: 16px;
   max-width: 600px;
   margin: 20px auto;
-  font-family: Arial, sans-serif;
 }
 
 /* Header (profile + bookmark) */
@@ -12,12 +11,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Arial, sans-serif;
 }
 
 .post-user {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-family: Arial, sans-serif;
 }
 
 .post-user img {
@@ -31,12 +32,14 @@
   font-weight: bold;
   font-size: 14px;
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 .post-user-info p:last-child {
   font-size: 12px;
   color: #6b7280; /* gray */
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 /* Post Image */
@@ -60,11 +63,13 @@
 .post-actions p {
   font-size: 14px;
   color: #374151; 
+  font-family: Arial, sans-serif;
 }
 
 .post-caption {
   margin-top: 8px;
   font-size: 14px;
+  font-family: Arial, sans-serif;
 }
 
 .post-caption span {

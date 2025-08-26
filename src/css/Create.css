@@ -4,7 +4,6 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  font-family: monospace;
 }
 
 .create-header {
@@ -20,6 +19,7 @@
   font-family: 'Martian Mono', monospace;
   font-size: 20px;
   justify-content: center;
+  font-family: "Martian Mono", monospace;;
 }
 
 .nav-icon {
@@ -61,6 +61,7 @@
   justify-content: center;
   align-items: center;
   margin: 20px auto;
+  font-family: monospace;
 }
 
 .icon{
@@ -81,6 +82,7 @@
   resize: none;
   padding: 8px;
   margin-top: 10px;
+  font-family: monospace;
 }
 
 .options {
@@ -94,6 +96,7 @@
   cursor: pointer;
   width: 700px;
   font-size: 14px;
+  font-family: monospace;
 }
 
 .map{
@@ -118,6 +121,7 @@
   border: none;
   outline: none;
   resize: none;
+  font-family: monospace;
 }
 
 .phone-caption-input:hover{
@@ -139,5 +143,7 @@ hr{
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   z-index: 10;
   margin-top: 5px;
+  font-family: monospace;
 }
+
 

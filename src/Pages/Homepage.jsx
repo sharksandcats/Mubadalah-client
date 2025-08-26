@@ -2,6 +2,7 @@ import { HeartHandshake, Bookmark } from 'lucide-react'
 import { useState } from 'react'
 
 import '../css/Homepage.css'
+import Sidebar from '../Components/Sidebar'
 
 
 const Homepage = (props) =>{
@@ -12,7 +13,7 @@ const Homepage = (props) =>{
     return(
 
         <div className='post'>
-
+            <Sidebar />
             <div className='post-header'>
                 <div className='post-user'>
                     <img src={props.img} alt = "Profile"/>

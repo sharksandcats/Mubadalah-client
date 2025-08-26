@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 
 import '../css/Create.css'
 import CitySelector from '../Components/CitySelector';
+import Sidebar  from '../Components/Sidebar.jsx';
 
 const Create = () =>{
 
@@ -13,6 +14,7 @@ const Create = () =>{
 
     return(
         <div className='create-container'>
+            <Sidebar />
             <div className='create-header'>
                 <ArrowLeft 
                 className='nav-icon'
