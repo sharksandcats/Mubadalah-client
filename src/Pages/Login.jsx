@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Eye, EyeClosed } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import '../css/Login.css';
 
@@ -58,7 +59,7 @@ const Login = () =>{
                                 className='toggle-password'
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                {showPassword ? <EyeClosed size={20}/> : <Eye size={20}/>}
+                                {showPassword ? <Eye size={20}/> : <EyeClosed size={20}/>}
                             </span>
                         </div>
                     </div>
@@ -66,6 +67,11 @@ const Login = () =>{
                     <button type='submit' className='login-btn'>
                         Sign In
                     </button>
+
+                    <p className="signup-link">
+                        Don't have an account? <Link to="/signup">Sign up</Link>
+                    </p>
+
                 </form>
             </div>
 

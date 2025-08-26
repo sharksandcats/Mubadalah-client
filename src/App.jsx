@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
-import Sidebar from './Components/Sidebar'
+//import Sidebar from './Components/Sidebar'
 import Homepage from './Pages/Homepage'
 import Create from './Pages/Create';
 import './css/App.css'
@@ -44,7 +44,6 @@ function App() {
   return (
   <Router>
     <div className="app-container">
-      <Sidebar />
       <main>
         <Routes>
           <Route

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
 import '../css/EditProfile.css'
+import Sidebar from '../Components/Sidebar'
 
 const EditProfile = () =>{
 
@@ -29,6 +30,7 @@ const EditProfile = () =>{
 
     return(
         <div className='edit-profile-container'>
+            <Sidebar />
             <div className='edit-header'>
                 <ArrowLeft
                     size={24}
