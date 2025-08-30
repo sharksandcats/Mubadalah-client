@@ -1,5 +1,5 @@
 import {ArrowLeft, SendHorizontal, MapPinPlus, Phone, ImageUp } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import '../css/Create.css'
@@ -11,25 +11,52 @@ const Create = () =>{
     const navigate = useNavigate();
     const [showDropdown, setShowDropdown] = useState(false)
     const [location, setLocation] = useState("Add Location")
+    const fileInputRef = useRef(null);
+    const [preview, setPreview] = useState(null)
+
+    const HandleClick = () =>{
+        fileInputRef.current.click()
+    }
+
+    const HandleFileChange = (e) =>{
+        const file = e.target.files[0]
+        if(file){
+            const imageUrl = URL.createObjectURL(file)
+            setPreview(imageUrl)
+        }
+    }
 
     return(
         <div className='create-container'>
             <Sidebar />
             <div className='create-header'>
                 <ArrowLeft 
-                className='nav-icon'
+                className='arrow-nav-icon'
                 onClick={() => navigate(-1)}
                 />
                 <h2> New Post </h2>
-                <SendHorizontal className='nav-icon'/>
+                <SendHorizontal className='send-nav-icon'/>
             </div>
 
             <hr/>
 
             <div className="upload-box">
-
-                <ImageUp className='icon' size={100}/>
-
+                {preview ? (
+                    <img src={preview} alt='preview' className='uploaded-img'/>
+                ) : (
+                    <ImageUp 
+                        className='icon' 
+                        size={100}
+                        onClick={HandleClick}
+                    />
+                )}
+                <input
+                    type='file'
+                    accept='image/*'
+                    ref={fileInputRef}
+                    style={{display: "none"}} //prevent the browser's default choose file message
+                    onChange={HandleFileChange}
+                />
             </div>
 
             <textarea

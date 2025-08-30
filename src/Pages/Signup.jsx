@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Eye, EyeClosed } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import '../css/Login.css';
+import '../css/Signup.css';
+import RightPanel from '../Components/RightPanel';
 
 const Signup = () =>{
     
@@ -28,12 +29,12 @@ const Signup = () =>{
     }
 
     return(
-        <div className='login-container'>
-            <div className='login-left'>
+        <div className='signup-container'>
+            <div className='signup-left'>
                 <h1 className='welcome-text'> Sign Up </h1>
                 <p className='subtitle'>Join Mubadalah community today!</p>
 
-                <form className='login-form' onSubmit={handleSubmit}>
+                <form className='signup-form' onSubmit={handleSubmit}>
 
                     <div className='form-group'>
                         <label>Name</label>
@@ -91,7 +92,7 @@ const Signup = () =>{
                         </div>
                     </div>
 
-                    <button type='submit' className='login-btn'>
+                    <button type='submit' className='signup-btn'>
                         Sign Up
                     </button>
 
@@ -102,9 +103,7 @@ const Signup = () =>{
                 </form>
             </div>
 
-            <div className='login-right'>
-                <h1> Mubadalah </h1>
-            </div>
+            <RightPanel />
         </div>
     )
 }

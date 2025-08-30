@@ -1,4 +1,4 @@
-import { House, SquarePlus, CircleUserRound, LogOut } from "lucide-react";
+import { House, SquarePlus, CircleUserRound, LogOut, LogIn } from "lucide-react";
 import {BrowserRouter as Router, Routes, Route, Link, NavLink} from "react-router-dom";
 
 
@@ -14,7 +14,7 @@ function Sidebar(){
                     <NavLink to="/"><House /> Home </NavLink> 
                     <NavLink to="/create"><SquarePlus /> Create </NavLink>
                     <NavLink to="/profile/Asem"><CircleUserRound /> Profile </NavLink> 
-                    <NavLink to="/login" className="login"> Login </NavLink>
+                    <NavLink to="/login" className="login"><LogIn /> Login </NavLink>
                 </nav>
             </div>
             <button className="logout"><LogOut /> Logout </button>
