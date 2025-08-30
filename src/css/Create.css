@@ -12,6 +12,7 @@
   align-items: center;
   margin-bottom: 10px;
   justify-content: center;
+  width: 700px;
 }
 
 .create-header h2 {
@@ -22,11 +23,21 @@
   font-family: "Martian Mono", monospace;;
 }
 
-.nav-icon {
-  cursor: pointer
+.arrow-nav-icon {
+  cursor: pointer;
+  margin-right: 250px;
 }
 
-.nav-icon:hover{
+.send-nav-icon {
+  cursor: pointer;
+  margin-left: 250px;
+}
+
+.arrow-nav-icon:hover{
+  color: #619BF1;
+}
+
+.send-nav-icon:hover{
   color: #619BF1;
 }
 
@@ -44,6 +55,13 @@
   margin: 20px 0;
   background: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.uploaded-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .caption-input {
@@ -70,7 +88,7 @@
 }
 
 .icon:hover{
-  color:#1c1c1c;
+  color:#619BF1;
 }
 
 .caption-input {

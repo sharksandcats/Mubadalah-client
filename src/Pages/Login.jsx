@@ -3,6 +3,7 @@ import { Eye, EyeClosed } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import '../css/Login.css';
+import RightPanel from '../Components/RightPanel';
 
 const Login = () =>{
     
@@ -75,9 +76,8 @@ const Login = () =>{
                 </form>
             </div>
 
-            <div className='login-right'>
-                <h1> Mubadalah </h1>
-            </div>
+            <RightPanel />
+            
         </div>
     )
 }

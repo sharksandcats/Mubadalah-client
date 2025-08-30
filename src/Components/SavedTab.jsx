@@ -1,0 +1,50 @@
+import { useState } from 'react';
+import { Bookmark, HeartHandshake } from 'lucide-react';
+
+const SavedTab = ({savedPosts}) =>{
+
+    const [liked, setLiked] = useState(false)
+    const [saved, setSaved] = useState(true)
+
+    return(
+        <div className='posts-tab'>
+            {savedPosts.map((post, index) => (
+               <div className='post' key={index}>
+                <div className='post-header'>
+                    <div className='post-user'>
+                        <img src={post.img} alt='profile'/>
+                        <div className='post-user-info'>
+                            <p> {post.user} </p>
+                            <p>
+                                {post.phone} • {post.location} 
+                            </p>
+                        </div>
+                    </div>
+                    <Bookmark
+                        className={`icon ${saved ? "active" : ""}`}
+                        onClick={() => setSaved(!saved)}
+                    />
+                </div>
+
+                <div className='post-image'>
+                    <img src={post.image} alt='post'/>
+                </div>
+
+                <div className='post-actions'>
+                    <HeartHandshake
+                        className={`icon ${liked ? "active" : ""}`}
+                        onClick={() => setLiked(!liked)}
+                    />
+                    <p> {liked ? post.likes +1 : post.likes} likes</p>
+                </div>
+
+                <p className='post-caption'>
+                    <span>{post.user}</span> {post.caption}
+                </p>
+                </div>
+            ))}
+        </div>
+    )
+}
+
+export default SavedTab;

@@ -32,6 +32,7 @@ aside nav a {
   display: flex;
   align-items: center;
   gap: 15px;
+  font-family: Arial, sans-serif;
   font-size: 16px;
   color: #565757;
   text-decoration: none;

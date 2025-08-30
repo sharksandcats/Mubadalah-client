@@ -6,7 +6,7 @@ html, body { height: 100%; }
 body { margin: 0; }
 
 /* Layout */
-.login-container {
+.signup-container {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -17,9 +17,8 @@ body { margin: 0; }
   left: 0;
 }
 
-/* Left Side (form) */
-.login-left {
-  flex: 1;                   /* takes remaining width */
+.signup-left {
+  flex: 1;                   
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,14 +38,14 @@ body { margin: 0; }
   margin-top: 5px;
   color: #888;
   font-size: 1.1rem;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
-.login-form {
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  max-width: 560px;          /* bigger, desktop-appropriate form width */
+  width: 460px;          /* bigger, desktop-appropriate form width */
 }
 
 .form-group {
@@ -79,7 +78,7 @@ body { margin: 0; }
   cursor: pointer;
 }
 
-.login-btn {
+.signup-btn {
   margin-top: 20px;
   background: #4da6ff;
   color: white;
@@ -92,27 +91,8 @@ body { margin: 0; }
 }
 .login-btn:hover { background: #1b87f4; }
 
-/* Right Side (blue panel) */
-.right-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 800px;
-  height: 100vh;
-  background: #4da6ff;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom-left-radius: 100px;
-  font-family: "Martian Mono", monospace;
-  font-size: 50px;
-  z-index: 10;
-}
-
-/* Sign up link */
 .signup-link {
-  margin-top: 15px;
+  margin-top: 5px;
   font-size: 15px;
   text-align: center;
   color: #555;
