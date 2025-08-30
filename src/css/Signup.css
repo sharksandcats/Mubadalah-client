@@ -103,3 +103,91 @@ body { margin: 0; }
   font-weight: 500;
 }
 .signup-link a:hover { text-decoration: underline; }
+
+
+/* --- Mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .signup-container {
+    flex-direction: column;
+    position: relative;
+    height: auto;
+  }
+
+  .signup-left {
+    flex: 1;
+    padding: 32px 20px;   /* smaller padding */
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .welcome-text {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .signup-form {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .form-group input {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .signup-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .signup-link {
+    font-size: 14px;
+  }
+}
+
+/* --- Tablet (481px to 768px) --- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .signup-container {
+    flex-direction: row;
+    height: 100vh;
+    width: 400px;
+  }
+
+  .signup-left {
+    padding: 48px 32px;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .welcome-text {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .signup-form {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .form-group input {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .signup-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .signup-link {
+    font-size: 14px;
+  }
+}

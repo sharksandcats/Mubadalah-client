@@ -95,3 +95,101 @@
 .profile-posts {
   margin-top: 20px;
 }
+
+/* --- Mobile: ≤480px --- */
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 12px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profile-pic {
+    width: 70px;
+    height: 70px;
+  }
+
+  .profile-name {
+    margin-left: 0;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .tabs-wrapper {
+    margin-top: 30px;
+  }
+
+  .post-tabs {
+    flex-wrap: wrap;
+    gap: 20px;
+    top: -15px;
+    padding: 0 8px;
+  }
+
+  .tab-icon {
+    margin-inline: 20px;
+    font-size: 1.1rem;
+  }
+
+  .profile-posts {
+    margin-top: 15px;
+  }
+}
+
+/* --- Tablet: 481px to 768px --- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .profile-container {
+    padding: 16px;
+  }
+
+  .profile-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .profile-pic {
+    width: 85px;
+    height: 85px;
+  }
+
+  .profile-name {
+    margin-left: 20px;
+    font-size: 1.4rem;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 7px 13px;
+    font-size: 1rem;
+  }
+
+  .tabs-wrapper {
+    margin-top: 35px;
+  }
+
+  .post-tabs {
+    gap: 30px;
+    top: -18px;
+    padding: 0 10px;
+  }
+
+  .tab-icon {
+    margin-inline: 35px;
+    font-size: 1.2rem;
+  }
+
+  .profile-posts {
+    margin-top: 18px;
+  }
+}
