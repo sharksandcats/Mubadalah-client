@@ -38,6 +38,20 @@
     background-color: #1b87f4;
 }
 
+.delete-btn{
+  background: #EC221F;
+  color: white;
+  font-family: Arial, sans-serif;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover{
+  background: #b91c1c;
+}
+
 .tabs-wrapper{
     position: relative;
     margin-top: 40px;

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
 //import Sidebar from './Components/Sidebar'
@@ -9,6 +8,8 @@ import Profile from './Pages/Profile';
 import EditProfile from './Pages/EditProfile';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
+import AdminHomepage from "./Pages/AdminHomepage";
+import AdminProfile from "./Pages/AdminProfile";
 
 function App() {
 
@@ -71,6 +72,26 @@ function App() {
           <Route path="/edit-profile" element={<EditProfile/>}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/signup' element={<Signup />}/>
+
+          <Route path="/admin" 
+                 element={
+              <div>
+                {posts.map((post, index) => (
+                  <AdminHomepage
+                    key={index}
+                    user={post.user}
+                    img={post.img}
+                    location={post.location}
+                    phone={post.phone}
+                    image={post.image}
+                    likes={post.likes}
+                    caption={post.caption}
+                  />
+                ))}
+              </div>
+            }
+          />
+          <Route path="/admin/:admin" element={<AdminProfile />} />
         </Routes>
       </main>
     </div>
