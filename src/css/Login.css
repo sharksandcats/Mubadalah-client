@@ -123,3 +123,108 @@ body { margin: 0; }
   font-weight: 500;
 }
 .signup-link a:hover { text-decoration: underline; }
+
+
+/* --- Media query for small screens (480px) --- */
+@media (max-width: 480px) {
+  .login-container {
+    flex-direction: column;   /* stack panels vertically */
+    position: relative;       /* not fixed anymore */
+    height: auto;
+  }
+
+  /* Left Side (form) */
+  .login-left {
+    flex: 1;
+    padding: 32px 20px;      /* reduce padding */
+    max-width: 100%;         /* full width */
+    margin-right: 0;
+  }
+
+  .welcome-text {
+    font-size: 28px;          /* smaller text */
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .login-form {
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .form-group input {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .login-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* Right Side (blue panel) */
+  .right-panel {
+    display: none;            /* hide panel on small screens */
+  }
+
+  /* Sign up link */
+  .signup-link {
+    font-size: 14px;
+  }
+}
+
+/* --- Media query for medium screens (768px) --- */
+/* --- Media query for tablets / medium screens (480px to 768px) --- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .login-container {
+    flex-direction: row;        /* keep side-by-side layout */
+    height: 100vh;
+    width: 400px;
+  }
+
+  /* Left Side (form) */
+  .login-left {
+    padding: 48px 32px;         /* smaller padding than desktop */
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .welcome-text {
+    font-size: 32px;            /* slightly smaller */
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .login-form {
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  .form-group input {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .login-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* Right Side (blue panel) */
+  .right-panel {
+    width: 300px;               /* shrink width for tablet */
+    font-size: 36px;
+    border-bottom-left-radius: 60px;
+  }
+
+  /* Sign up link */
+  .signup-link {
+    font-size: 14px;
+  }
+}

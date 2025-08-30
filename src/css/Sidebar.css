@@ -95,3 +95,80 @@ aside button:active{
 .login:focus{
   border: #619BF1;
 }
+
+.hamburger{
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 900;
+  transition: opacity 0.3s ease;
+  }
+
+  .overlay.active {
+  display: block;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+
+  aside {
+    transform: translateX(-100%);
+    width: 200px;
+  }
+
+  aside.active {
+    transform: translateX(0);
+  }
+
+  aside h1 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  aside nav a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* --- Tablet: 481px to 768px --- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  aside {
+    transform: translateX(-100%);
+    width: 220px;
+  }
+
+  aside.active {
+    transform: translateX(0);
+  }
+
+  aside h1 {
+    font-size: 26px;
+    margin-bottom: 50px;
+  }
+
+  aside nav a {
+    font-size: 15px;
+    padding: 9px 14px;
+  }
+}
