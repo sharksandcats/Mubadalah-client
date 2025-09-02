@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { useState, useEffect } from "react";
 
 //import Sidebar from './Components/Sidebar'
 import Homepage from './Pages/Homepage'
@@ -12,6 +13,29 @@ import AdminHomepage from "./Pages/AdminHomepage";
 import AdminProfile from "./Pages/AdminProfile";
 
 function App() {
+
+  const [user, setUser] = useState(null);
+  const [page, setPage] = useState([]);
+
+  useEffect(()=>{
+    const savedUser = localStorage.getItem("user");
+    if(savedUser){
+      const userData = JSON.parse(savedUser);
+      setUser(userData);
+      fetch(`http://localhost:5000/api/users/`)
+        .then((res) => res.json())
+        .then((data) => setPage(data))
+    }
+  }, [])
+
+  const handleLogin = (userData) =>{
+    console.log("Login handled", userData);
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
+    fetch(`http://localhost:5000/api/users/`)
+      .then((res) => res.json())
+      .then((data) => setPage(data))
+  }
 
   const posts = [
     {
@@ -70,7 +94,7 @@ function App() {
           <Route path="/create" element={<Create/>}/>
           <Route path="/profile/:user" element={<Profile/>}/>
           <Route path="/edit-profile" element={<EditProfile/>}/>
-          <Route path='/login' element={<Login />}/>
+          <Route path='/login' element={<Login onLogin={handleLogin}/>}/>
           <Route path='/signup' element={<Signup />}/>
 
           <Route path="/admin" 

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Eye, EyeClosed } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import '../css/Login.css';
 import RightPanel from '../Components/RightPanel';
 
-const Login = () =>{
+
+const Login = ({ onLogin }) =>{
     
     const [formData, setFormData] = useState({
         username: "",
@@ -21,9 +23,22 @@ const Login = () =>{
         })
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
-        console.log("Login data: ", formData);
+        
+        try{
+            const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+            const result = res.data
+
+            if(result.user){
+                console.log("Logged in", result.user);
+                onLogin(result.user);
+            }else{
+                alert(result.message || "Login failed");
+            }
+        }catch(err){
+            alert(`Login failed. Please check your credentials ${err}`)
+        }
     }
 
     return(
@@ -82,4 +97,4 @@ const Login = () =>{
     )
 }
 
-export default Login
+export default Login;
