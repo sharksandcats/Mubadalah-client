@@ -12,11 +12,11 @@ const SavedTab = ({savedPosts}) =>{
                <div className='post' key={index}>
                 <div className='post-header'>
                     <div className='post-user'>
-                        <img src={post.img} alt='profile'/>
+                        <img src={post.profile_url} alt='profile'/>
                         <div className='post-user-info'>
-                            <p> {post.user} </p>
+                            <p> {post.username} </p>
                             <p>
-                                {post.phone} • {post.location} 
+                                {post.phone_number} • {post.location} 
                             </p>
                         </div>
                     </div>
@@ -27,7 +27,7 @@ const SavedTab = ({savedPosts}) =>{
                 </div>
 
                 <div className='post-image'>
-                    <img src={post.image} alt='post'/>
+                    <img src={post.image_url} alt='post'/>
                 </div>
 
                 <div className='post-actions'>
@@ -35,11 +35,11 @@ const SavedTab = ({savedPosts}) =>{
                         className={`icon ${liked ? "active" : ""}`}
                         onClick={() => setLiked(!liked)}
                     />
-                    <p> {liked ? post.likes +1 : post.likes} likes</p>
+                    <p> {post.likes || 0} likes </p>
                 </div>
 
                 <p className='post-caption'>
-                    <span>{post.user}</span> {post.caption}
+                    <span>{post.username}</span> {post.caption}
                 </p>
                 </div>
             ))}

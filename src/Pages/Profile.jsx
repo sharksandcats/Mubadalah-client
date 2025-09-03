@@ -1,41 +1,67 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Grid3x3, Bookmark } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import '../css/Profile.css'
 import Sidebar from '../Components/Sidebar.jsx';
 import PostsTab from '../Components/PostsTab.jsx';
 import SavedTab from '../Components/SavedTab.jsx';
 
-const Profile = () =>{
+const Profile = ({user, setUser}) =>{
     
     const [activeTab, setActiveTab] = useState("posts")
+    const [posts, setPosts] = useState([]);
+    const [savedPosts, setSavedPosts] = useState([]);
     const navigate = useNavigate();
 
-    const posts = [
-        {
-        user:"Asem",
-        img: "https://gratisography.com/wp-content/uploads/2022/02/gratisography-nerdy-guy-free-stock-photo-1170x780.jpg",
-        location: "Irbid",
-        phone: "0793332891",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROWff7eMHG8ttQOGyMKuU-S4HFMZKxJrZ7Nw&s",
-        likes: 26,
-        caption: "PlayStation 4. Quality: 4/5. Would love to replace it with some nice friends cause I’m lonely :("
-        }
-    ]
+    const fetchPosts = async () => {
+    if (!user) return;
+    try {
+      const res = await axios.get(`http://localhost:5000/api/users/${user.username}/posts`);
+      setPosts(res.data);
+    } catch (err) {
+      console.log("Error fetching posts: ", err);
+    }
+  };
 
-    const savedPosts = [posts[0]]
+  const fetchSaved = async () => {
+    if (!user) return;
+    try {
+      const res = await axios.get(`http://localhost:5000/api/users/${user.username}/saves`);
+      setSavedPosts(res.data);
+    } catch (err) {
+      console.log("Error fetching saved posts: ", err);
+    }
+  };
+
+  const handleUpdate = async(updatedData) =>{
+    try{
+        const res = await axios.put(`http://localhost:5000/api/users/${user.user_id}`, updatedData);
+        setUser(res.data);
+    }catch(err){
+        console.log("Error: ", err);
+        
+    }
+  }
+
+  useEffect(() => {
+    if (!user) return;
+    fetchPosts();
+    fetchSaved();
+  }, [user]);
 
     return(
         <div className='profile-container'>
-            <Sidebar />
+            <Sidebar/>
             <div className='profile-header'>
-                <img src='https://gratisography.com/wp-content/uploads/2022/02/gratisography-nerdy-guy-free-stock-photo-1170x780.jpg'
+                <img src={user?.profile_url}
                      alt='profile-picture'
-                     className='profile-pic'/>
-                <h2 className='profile-name'> Asem </h2>
+                     className='profile-pic'
+                />
+                <h2 className='profile-name'> {user?.username} </h2>
                 <button className='edit-btn'
-                        onClick={() => navigate("/edit-profile")}>
+                        onClick={() => navigate("/edit-profile", { state: {user} })}>
                             Edit Profile
                 </button>
             </div>
@@ -56,8 +82,11 @@ const Profile = () =>{
                 </div>
 
                 <div className='tab-content'>
-                    {activeTab === 'posts' && <PostsTab posts={posts} />}
-                    {activeTab === 'saved' && <SavedTab savedPosts={savedPosts} />}
+                    {activeTab === 'posts' ? (
+                        <PostsTab posts={posts} user={user} onRefresh={fetchPosts}/> 
+                    ):(
+                         <SavedTab savedPosts={savedPosts} user={user}/>
+                    )}
                 </div>
             </div>
         </div>

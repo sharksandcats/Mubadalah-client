@@ -1,31 +1,37 @@
 import { useState } from 'react';
 import { Eye, EyeClosed } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import '../css/Signup.css';
 import RightPanel from '../Components/RightPanel';
 
-const Signup = () =>{
+const Signup = ({onLogin}) =>{
     
-    const [formData, setFormData] = useState({
-        name: "",
-        username: "",
-        email: "",
-        password: "",
-    })
+    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate();
 
-    const handleChange = (e) =>{
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        })
-    }
+    const signup = async (e) =>{
+        e.preventDefault();
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-        console.log("Signup data: ", formData);
+        try{
+            const newUser = {name, username, email, password};
+            const res = await axios.post("http://localhost:5000/api/auth/signup", newUser);
+
+            if(res.data){
+                onLogin(res.data);
+                navigate("/");
+            }else{
+                alert(res.data.message);
+                }
+        }catch(err){
+            alert("Signup failed: "+ err.message);
+        }
     }
 
     return(
@@ -34,15 +40,15 @@ const Signup = () =>{
                 <h1 className='welcome-text'> Sign Up </h1>
                 <p className='subtitle'>Join Mubadalah community today!</p>
 
-                <form className='signup-form' onSubmit={handleSubmit}>
+                <form className='signup-form' onSubmit={signup}>
 
                     <div className='form-group'>
                         <label>Name</label>
                         <input
                             type='text'
                             name='name'
-                            value={formData.name}
-                            onChange={handleChange}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             placeholder='Enter your name'
                             required
                         />
@@ -53,8 +59,8 @@ const Signup = () =>{
                         <input
                             type='text'
                             name='username'
-                            value={formData.username}
-                            onChange={handleChange}
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             placeholder='Enter your username'
                             required
                         />
@@ -65,8 +71,8 @@ const Signup = () =>{
                         <input
                             type='email'
                             name='email'
-                            value={formData.email}
-                            onChange={handleChange}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder='email@example.com'
                             required
                         />
@@ -78,8 +84,8 @@ const Signup = () =>{
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 name='password'
-                                value={formData.password}
-                                onChange={handleChange}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 placeholder='Enter your password'
                                 required
                             />

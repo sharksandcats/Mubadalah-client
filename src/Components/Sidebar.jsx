@@ -6,10 +6,16 @@ import "../css/Sidebar.css"
 import { useState } from "react";
 
 //NavLink instead of Link so i can add hover and active css
-function Sidebar(){
+function Sidebar({setUser}){
 
     const [isOpen, setIsOpen] = useState(false)
     const handleOverlayClick = () => setIsOpen(false);
+
+    const handleLogout = () =>{
+        setUser(null);
+        localStorage.removeItem("user");
+        setIsOpen(false);
+    }
 
     return(
     <>
@@ -29,11 +35,11 @@ function Sidebar(){
                 <nav>
                     <NavLink to="/" onClick={() => setIsOpen(false)}><House /> Home </NavLink> 
                     <NavLink to="/create" onClick={() => setIsOpen(false)}><SquarePlus /> Create </NavLink>
-                    <NavLink to="/profile/Asem" onClick={() => setIsOpen(false)}><CircleUserRound /> Profile </NavLink> 
+                    <NavLink to="/profile" onClick={() => setIsOpen(false)}><CircleUserRound /> Profile </NavLink> 
                     <NavLink to="/login" className="login" onClick={() => setIsOpen(false)}><LogIn /> Login </NavLink>
                 </nav>
             </div>
-            <button className="logout" onClick={() => setIsOpen(false)}><LogOut /> Logout </button>
+            <button className="logout" onClick={handleLogout}><LogOut /> Logout </button>
         </aside>
     </>
     )

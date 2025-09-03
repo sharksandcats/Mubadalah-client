@@ -12,7 +12,7 @@ const AdminHomepage = (props) =>{
     return(
 
         <div className='post'>
-             <AdminSidebar />
+             <AdminSidebar/>
             <div className='post-header'>
                 <div className='post-user'>
                     <img src={props.img} alt = "Profile"/>

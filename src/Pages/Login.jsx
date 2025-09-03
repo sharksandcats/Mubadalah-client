@@ -1,44 +1,32 @@
 import { useState } from 'react';
 import { Eye, EyeClosed } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 import '../css/Login.css';
 import RightPanel from '../Components/RightPanel';
 
 
 const Login = ({ onLogin }) =>{
-    
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-    })
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate();
 
-    const handleChange = (e) =>{
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        })
-    }
+    const login = async (e) =>{
+        e.preventDefault();
 
-    const handleSubmit = async (e) =>{
-        e.preventDefault()
-        
-        try{
-            const res = await axios.post("http://localhost:5000/api/auth/login", formData);
-            const result = res.data
-
-            if(result.user){
-                console.log("Logged in", result.user);
-                onLogin(result.user);
-            }else{
-                alert(result.message || "Login failed");
-            }
-        }catch(err){
-            alert(`Login failed. Please check your credentials ${err}`)
-        }
+        const res = await fetch("http://localhost:5000/api/auth/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({username, password}),
+        });
+        const data = await res.json();
+        if(res.ok){
+            onLogin(data.user);
+            navigate("/");
+        }else alert(data.message);
     }
 
     return(
@@ -47,14 +35,14 @@ const Login = ({ onLogin }) =>{
                 <h1 className='welcome-text'> Welcome Back! </h1>
                 <p className='subtitle'>Sign in to get back to business</p>
 
-                <form className='login-form' onSubmit={handleSubmit}>
+                <form className='login-form' onSubmit={login}>
                     <div className='form-group'>
                         <label>Username</label>
                         <input
                             type='text'
                             name='username'
-                            value={formData.username}
-                            onChange={handleChange}
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             placeholder='Enter your username'
                             required
                         />
@@ -66,8 +54,8 @@ const Login = ({ onLogin }) =>{
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 name='password'
-                                value={formData.password}
-                                onChange={handleChange}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 placeholder='Enter your password'
                                 required
                             />

@@ -1,5 +1,6 @@
 import { HeartHandshake, Bookmark } from 'lucide-react'
 import { useState } from 'react'
+import axios from 'axios'
 
 import '../css/Homepage.css'
 import Sidebar from '../Components/Sidebar'
@@ -10,10 +11,28 @@ const Homepage = (props) =>{
     const [liked, setLiked] = useState(false)
     const [saved, setSaved] = useState(false)
 
+    const savePost = async() =>{
+        if(!props.userId){
+            alert("You must be logged in to save posts!");
+            return;
+        }
+
+        try{
+            await axios.post("http://localhost:5000/api/users/saves",{
+                user_id: props.userId,
+                post_id: props.postId
+            });
+            setSaved(true);
+            alert("Post saved successfully!")
+        }catch(err){
+            alert("Failed to save post");
+        }
+    }
+
     return(
 
         <div className='post'>
-            <Sidebar />
+            <Sidebar/>
             <div className='post-header'>
                 <div className='post-user'>
                     <img src={props.img} alt = "Profile"/>
@@ -24,7 +43,7 @@ const Homepage = (props) =>{
                 </div>
                 <Bookmark 
                     className={`icon ${saved ? 'active': ''}`}
-                    onClick={() => setSaved(!saved)}/>
+                    onClick={savePost}/>
             </div>
 
             <div className='post-image'>
@@ -36,7 +55,7 @@ const Homepage = (props) =>{
                 className={`icon ${liked ? 'active': ''}`}
                     onClick={() => setLiked(!liked)}/>
 
-                <p>{liked ? props.likes + 1: props.likes} likes</p>
+                <p>{props.likes || 0} likes</p>
             </div>
 
             <p className='post-caption'>

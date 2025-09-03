@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 //import Sidebar from './Components/Sidebar'
 import Homepage from './Pages/Homepage'
@@ -15,57 +16,29 @@ import AdminProfile from "./Pages/AdminProfile";
 function App() {
 
   const [user, setUser] = useState(null);
-  const [page, setPage] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-  useEffect(()=>{
-    const savedUser = localStorage.getItem("user");
-    if(savedUser){
-      const userData = JSON.parse(savedUser);
-      setUser(userData);
-      fetch(`http://localhost:5000/api/users/`)
-        .then((res) => res.json())
-        .then((data) => setPage(data))
+  useEffect(() =>{
+    const stored = localStorage.getItem("user");
+    if(stored) setUser(JSON.parse(stored));
+
+    const fetchPosts = async() =>{
+      try{
+        const res = await axios.get("http://localhost:5000/api/users/");
+        console.log("Fetched posts:", res.data);
+        setPosts(res.data);
+      }catch(err){
+        alert("Error fetching posts: ", err);
+      }
     }
-  }, [])
+
+    fetchPosts();
+  }, []);
 
   const handleLogin = (userData) =>{
-    console.log("Login handled", userData);
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
-    fetch(`http://localhost:5000/api/users/`)
-      .then((res) => res.json())
-      .then((data) => setPage(data))
   }
-
-  const posts = [
-    {
-      user:"Asem",
-      img: "https://gratisography.com/wp-content/uploads/2022/02/gratisography-nerdy-guy-free-stock-photo-1170x780.jpg",
-      location: "Irbid",
-      phone: "0793332891",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROWff7eMHG8ttQOGyMKuU-S4HFMZKxJrZ7Nw&s",
-      likes: 26,
-      caption: "PlayStation 4. Quality: 4/5. Would love to replace it with some nice friends cause I’m lonely :("
-    },
-    {
-      user: "Maya",
-      img: "https://rlv.zcache.ca/peanuts_a_snoopy_happy_dance_door_sign-rb626efb74bcd429593301dbcdcd2ad08_6vj7r_644.webp?rlvnet=1",
-      location: "Amman",
-      phone: "07911113354",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpevyOaipSZgXWCf90sAe8yESWHQvaKtTsQ&s",
-      likes: 1000,
-      caption: "Minecraft chest. 100% real"
-    },
-    {
-      user: "Sasha",
-      img: "https://static.scientificamerican.com/sciam/cache/file/9CAE9C60-8BC5-4CA3-95C180EFACDD99FD_source.jpg?w=1200",
-      location: "Amman",
-      phone: "078888888888",
-      image: "https://i.chzbgr.com/full/9836262400/h06DD08DE",
-      likes: 90000,
-      caption: "cat works hard :))))"
-    }
-  ]
 
   return (
   <Router>
@@ -76,26 +49,31 @@ function App() {
             path="/"
             element={
               <div>
-                {posts.map((post, index) => (
-                  <Homepage
-                    key={index}
-                    user={post.user}
-                    img={post.img}
-                    location={post.location}
-                    phone={post.phone}
-                    image={post.image}
-                    likes={post.likes}
-                    caption={post.caption}
+                {posts.length === 0 ? (
+                  <p> No posts available </p>
+                ):(
+                  posts.map((post) => (
+                    <Homepage
+                      key={post.post_id}
+                      user={post.username}
+                      img={post.profile_url}
+                      location={post.location}
+                      phone={post.phone_number}
+                      image={post.image_url}
+                      caption={post.caption}
+                      userId={user?.user_id}
+                      postId={post.post_id}
                   />
-                ))}
+                ))
+                )}
               </div>
             }
           />
-          <Route path="/create" element={<Create/>}/>
-          <Route path="/profile/:user" element={<Profile/>}/>
+          <Route path="/create" element={<Create user={user}/>}/>
+          <Route path="/profile" element={<Profile user={user}/>}/>
           <Route path="/edit-profile" element={<EditProfile/>}/>
           <Route path='/login' element={<Login onLogin={handleLogin}/>}/>
-          <Route path='/signup' element={<Signup />}/>
+          <Route path='/signup' element={<Signup onLogin={handleLogin}/>}/>
 
           <Route path="/admin" 
                  element={
