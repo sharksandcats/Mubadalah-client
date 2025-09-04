@@ -17,6 +17,7 @@ function App() {
 
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [adminPosts, setAdminPosts] = useState([]);
 
   useEffect(() =>{
     const stored = localStorage.getItem("user");
@@ -27,6 +28,7 @@ function App() {
         const res = await axios.get("http://localhost:5000/api/users/");
         console.log("Fetched posts:", res.data);
         setPosts(res.data);
+        setAdminPosts(res.data);
       }catch(err){
         alert("Error fetching posts: ", err);
       }
@@ -61,8 +63,6 @@ function App() {
                       phone={post.phone_number}
                       image={post.image_url}
                       caption={post.caption}
-                      userId={user?.user_id}
-                      postId={post.post_id}
                   />
                 ))
                 )}
@@ -78,22 +78,26 @@ function App() {
           <Route path="/admin" 
                  element={
               <div>
-                {posts.map((post, index) => (
+                {adminPosts.length === 0 ? (
+                  <p> No posts available </p>
+                ):( 
+                 adminPosts.map((post) => (
                   <AdminHomepage
-                    key={index}
-                    user={post.user}
-                    img={post.img}
+                    key={post.post_id}
+                    postId={post.post_id}
+                    user={post.username}
+                    img={post.profile_url}
                     location={post.location}
-                    phone={post.phone}
-                    image={post.image}
-                    likes={post.likes}
+                    phone={post.phone_number}
+                    image={post.image_url}
                     caption={post.caption}
                   />
-                ))}
+                ))
+              )}
               </div>
             }
           />
-          <Route path="/admin/:admin" element={<AdminProfile />} />
+          <Route path="/admin/profile" element={<AdminProfile />} />
         </Routes>
       </main>
     </div>
@@ -101,4 +105,4 @@ function App() {
 );
 }
 
-export default App
+export default App;

@@ -1,50 +1,53 @@
-import { Trash2 } from 'lucide-react'
-import { useState } from 'react'
+import { Trash2 } from 'lucide-react';
+import axios from 'axios';
 
-import '../css/Homepage.css'
-import AdminSidebar from '../Components/AdminSidebar'
+import '../css/Homepage.css';
+import AdminSidebar from '../Components/AdminSidebar';
 
+const AdminHomepage = ({ postId, img, user, phone, location, image, caption}) => {
 
-const AdminHomepage = (props) =>{
+    const handleDelete = async () => {
+        if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-    const [showOptions, setShowOptions] = useState(false)
+        try {
+            const response = await axios.delete(`http://localhost:5000/api/admin/posts/${postId}`);
+            console.log(response.data);
+            alert("Post deleted successfully");
+            window.location.reload();
+        } catch (err) {
+            console.error(err);
+            alert(err.response?.data?.error || "Failed to delete post");
+        }
+    };
 
-    return(
-
+    return (
         <div className='post'>
-             <AdminSidebar/>
+            <AdminSidebar/>
             <div className='post-header'>
                 <div className='post-user'>
-                    <img src={props.img} alt = "Profile"/>
+                    <img src={img} alt="Profile"/>
                     <div className='post-user-info'>
-                        <p>{props.user}</p>
-                        <p>{props.phone} • {props.location}</p>
+                        <p>{user}</p>
+                        <p>{phone} • {location}</p>
                     </div>     
                 </div>
                 <div className='trash-container'>
                     <Trash2 
                         className='trash-icon'
-                        onClick={() => setShowOptions(!showOptions)}
+                        onClick={handleDelete}
                     />
-
-                    {showOptions && (
-                        <div className='delete-options'>
-                            <p onClick={() => alert("Profile Deleted")}>Delete Profile</p>
-                            <p onClick={() => alert("Post Deleted")}>Delete Post</p>
-                        </div> 
-                    )}
                 </div>
             </div>
 
             <div className='post-image'>
-                <img src={props.image} alt="post"/>
+                <img src={image} alt="post"/>
             </div>
 
             <p className='post-caption'>
-                <span>{props.user}</span> {props.caption}
+                <span>{user}</span> {caption}
             </p>
         </div>
-    )
+    );
 }
 
 export default AdminHomepage;

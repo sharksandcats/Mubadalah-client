@@ -1,6 +1,7 @@
 import { House, CircleUserRound, LogOut, Menu } from "lucide-react";
 import {BrowserRouter as Router, Routes, Route, Link, NavLink} from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../css/Sidebar.css"
 
@@ -9,6 +10,16 @@ function AdminSidebar(){
 
     const [isOpen, setIsOpen] = useState(false)
     const handleOverlayClick = () => setIsOpen(false);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+    localStorage.removeItem("user_id"); 
+    localStorage.removeItem("username");
+
+    setIsOpen(false);
+
+    navigate("/login");
+  };
 
     return(
         <>
@@ -32,10 +43,10 @@ function AdminSidebar(){
                         end
                     >
                         <House /> Home </NavLink> 
-                    <NavLink to="/admin/Maya" onClick={() => setIsOpen(false)}><CircleUserRound /> Profile </NavLink> 
+                    <NavLink to="/admin/profile" onClick={() => setIsOpen(false)}><CircleUserRound /> Profile </NavLink> 
                 </nav>
             </div>
-            <button className="logout" onClick={() => setIsOpen(false)}><LogOut /> Logout </button>
+            <button className="logout" onClick={handleLogout}><LogOut /> Logout </button>
         </aside>
         </>
     )

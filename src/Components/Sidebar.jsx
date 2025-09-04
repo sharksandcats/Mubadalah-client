@@ -4,18 +4,23 @@ import {BrowserRouter as Router, Routes, Route, Link, NavLink} from "react-route
 
 import "../css/Sidebar.css"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //NavLink instead of Link so i can add hover and active css
 function Sidebar({setUser}){
 
     const [isOpen, setIsOpen] = useState(false)
     const handleOverlayClick = () => setIsOpen(false);
+    const navigate = useNavigate();
 
-    const handleLogout = () =>{
-        setUser(null);
-        localStorage.removeItem("user");
-        setIsOpen(false);
-    }
+    const handleLogout = () => {
+    localStorage.removeItem("user_id"); 
+    localStorage.removeItem("username");
+
+    setIsOpen(false);
+
+    navigate("/login");
+  };
 
     return(
     <>

@@ -25,7 +25,19 @@ const Login = ({ onLogin }) =>{
         const data = await res.json();
         if(res.ok){
             onLogin(data.user);
-            navigate("/");
+
+            const isTrue = (v) => v === true || v === "true" || v === 1 || v === "1";
+            const isAdmin =
+                isTrue(data?.user?.isadmin) ||
+                isTrue(data?.user?.isAdmin) ||
+                isTrue(data?.user?.is_admin) ||
+                data?.user?.role === "admin";
+
+            if(isAdmin){
+                navigate("/admin");
+            }else{
+                navigate("/");
+            }
         }else alert(data.message);
     }
 
