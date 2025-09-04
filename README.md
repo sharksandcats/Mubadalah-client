@@ -1,12 +1,50 @@
-# React + Vite
+## **Mubadalah Frontend (React)**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for a trading application built with React + Vite 
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app consists of two types of users:
 
-## Expanding the ESLint configuration
+- **Regular Users**
+   - View other users' posts
+   - Save posts
+   - Create their own posts
+   - View their profile
+   - Delete their posts
+   - Edit their profile
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Admins**
+    - View all users' posts
+    - Delete users' posts
+    - View their profile
+
+Login and signup are included for users with role-based flow. Data is persisted in the backend via PostgreSQL
+
+## User Requirements
+
+1. Login or Signup with a username and password (admins are already predefined and can only log in)
+
+2. Admins can:
+    - Read and delete users
+    - Read their info
+
+3. Regular Users can:
+    - read posts
+    - create posts
+    - read **their** profile
+    - delete **their** posts
+    - edit **their** profile
+
+## Technologies
+
+- React 18
+- Vite
+- Fetch API
+- Local Storage (for session persistence)
+
+## Getting Started
+```bash
+cd Mubadalah
+npm install
+npm run dev
