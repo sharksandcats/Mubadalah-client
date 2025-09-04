@@ -11,6 +11,8 @@ const Homepage = (props) =>{
     const [liked, setLiked] = useState(false)
     const [saved, setSaved] = useState(false)
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     const savePost = async() =>{
         if(!props.userId){
             alert("You must be logged in to save posts!");
@@ -18,7 +20,7 @@ const Homepage = (props) =>{
         }
 
         try{
-            await axios.post("http://localhost:5000/api/users/saves",{
+            await axios.post(`${BASE_URL}/api/users/saves`,{
                 user_id: props.userId,
                 post_id: props.postId
             });

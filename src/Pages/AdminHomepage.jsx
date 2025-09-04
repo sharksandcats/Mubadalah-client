@@ -6,11 +6,13 @@ import AdminSidebar from '../Components/AdminSidebar';
 
 const AdminHomepage = ({ postId, img, user, phone, location, image, caption}) => {
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     const handleDelete = async () => {
         if (!window.confirm("Are you sure you want to delete this post?")) return;
 
         try {
-            const response = await axios.delete(`http://localhost:5000/api/admin/posts/${postId}`);
+            const response = await axios.delete(`${BASE_URL}/api/admin/posts/${postId}`);
             console.log(response.data);
             alert("Post deleted successfully");
             window.location.reload();

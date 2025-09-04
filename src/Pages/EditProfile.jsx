@@ -19,6 +19,8 @@ const EditProfile = ({ setUser }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     // populate form fields when user is available
     useEffect(() => {
         if (user) {
@@ -35,7 +37,7 @@ const EditProfile = ({ setUser }) => {
 
         try {
             const res = await axios.put(
-                `http://localhost:5000/api/users/${user.user_id}`,
+                `${BASE_URL}/api/users/${user.user_id}`,
                 { name, username, email, password }
             );
             // update user in parent state

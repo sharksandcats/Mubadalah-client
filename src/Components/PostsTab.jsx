@@ -7,9 +7,11 @@ const PostsTab = ({posts, user, onRefresh}) =>{
 
     const [liked, setLiked] = useState(false)
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     const handleDelete = async(postId) =>{
         try{
-            await axios.delete(`http://localhost:5000/api/users/${user.username}/posts/${postId}`)
+            await axios.delete(`${BASE_URL}/api/users/${user.username}/posts/${postId}`)
             onRefresh();
         }catch(err){
             console.log("Error: ", err);

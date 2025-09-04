@@ -21,6 +21,8 @@ const Create = ({user}) => {
 
     const fileInputRef = useRef(null)
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     const HandleClick = () =>{
         fileInputRef.current.click()
     }
@@ -48,7 +50,7 @@ const Create = ({user}) => {
             caption,
         };
 
-        await axios.post("http://localhost:5000/api/users/create", newPost);
+        await axios.post(`${BASE_URL}/api/users/create`, newPost);
         alert("Post Created!");
         navigate("/");
     } catch (err) {

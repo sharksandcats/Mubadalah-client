@@ -14,10 +14,12 @@ const Login = ({ onLogin }) =>{
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     const login = async (e) =>{
         e.preventDefault();
 
-        const res = await fetch("http://localhost:5000/api/auth/login", {
+        const res = await fetch(`${BASE_URL}/api/auth/login`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({username, password}),

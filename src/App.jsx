@@ -19,13 +19,15 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [adminPosts, setAdminPosts] = useState([]);
 
+  const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
   useEffect(() =>{
     const stored = localStorage.getItem("user");
     if(stored) setUser(JSON.parse(stored));
 
     const fetchPosts = async() =>{
       try{
-        const res = await axios.get("http://localhost:5000/api/users/");
+        const res = await axios.get(`${BASE_URL}/api/users/`);
         console.log("Fetched posts:", res.data);
         setPosts(res.data);
         setAdminPosts(res.data);

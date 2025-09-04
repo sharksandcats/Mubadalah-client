@@ -15,10 +15,12 @@ const Profile = ({user, setUser}) =>{
     const [savedPosts, setSavedPosts] = useState([]);
     const navigate = useNavigate();
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     const fetchPosts = async () => {
     if (!user) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/users/${user.username}/posts`);
+      const res = await axios.get(`${BASE_URL}/api/users/${user.username}/posts`);
       setPosts(res.data);
     } catch (err) {
       console.log("Error fetching posts: ", err);
@@ -28,7 +30,7 @@ const Profile = ({user, setUser}) =>{
   const fetchSaved = async () => {
     if (!user) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/users/${user.username}/saves`);
+      const res = await axios.get(`${BASE_URL}/api/users/${user.username}/saves`);
       setSavedPosts(res.data);
     } catch (err) {
       console.log("Error fetching saved posts: ", err);
@@ -37,7 +39,7 @@ const Profile = ({user, setUser}) =>{
 
   const handleUpdate = async(updatedData) =>{
     try{
-        const res = await axios.put(`http://localhost:5000/api/users/${user.user_id}`, updatedData);
+        const res = await axios.put(`${BASE_URL}/api/users/${user.user_id}`, updatedData);
         setUser(res.data);
     }catch(err){
         console.log("Error: ", err);

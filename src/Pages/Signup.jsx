@@ -16,12 +16,14 @@ const Signup = ({onLogin}) =>{
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
 
+    const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
     const signup = async (e) =>{
         e.preventDefault();
 
         try{
             const newUser = {name, username, email, password};
-            const res = await axios.post("http://localhost:5000/api/auth/signup", newUser);
+            const res = await axios.post(`${BASE_URL}/api/auth/signup`, newUser);
 
             if(res.data){
                 onLogin(res.data);
