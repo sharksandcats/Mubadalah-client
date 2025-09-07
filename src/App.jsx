@@ -59,6 +59,8 @@ function App() {
                   posts.map((post) => (
                     <Homepage
                       key={post.post_id}
+                      postId={post.post_id}          
+                      userId={user?.user_id}
                       user={post.username}
                       img={post.profile_url}
                       location={post.location}
@@ -87,6 +89,7 @@ function App() {
                   <AdminHomepage
                     key={post.post_id}
                     postId={post.post_id}
+                    userId={user?.user_id}
                     user={post.username}
                     img={post.profile_url}
                     location={post.location}

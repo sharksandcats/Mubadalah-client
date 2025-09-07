@@ -14,8 +14,9 @@ const Homepage = (props) =>{
     const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
     const savePost = async() =>{
-        if(!props.userId){
-            alert("You must be logged in to save posts!");
+
+        if (!props.userId || !props.postId) {
+            alert("Missing user or post ID");
             return;
         }
 
